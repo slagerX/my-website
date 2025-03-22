@@ -24,6 +24,7 @@ header {
 .header-left h1 {
     font-size: 24px;
     color: #333;
+    align-items: center;
 }
 
 .header-left p {
@@ -178,4 +179,26 @@ hr {
     border: none;
     border-top: 1px solid #ddd;
     margin: 20px 0;
+}
+
+
+
+/* Project Section Styling */
+.content h4 {
+    font-size: 18px;
+    color: #333;
+    margin: 15px 0 10px;
+}
+
+.content p strong {
+    color: #00c4b4;
+}
+
+.content a {
+    color: #00c4b4;
+    text-decoration: none;
+}
+
+.content a:hover {
+    text-decoration: underline;
 }
