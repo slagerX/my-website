@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -6,6 +5,7 @@
     <title>Shubh Yadav - Work Experience</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="icon" type="image/png" href="icons8-resume-100.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
     <header>
@@ -17,6 +17,16 @@
                 <li><a href="index.html">Profile</a></li>
                 <li><a href="work.html" class="active">Work Experience</a></li>
                 <li><a href="projects.html">Projects</a></li>
+                <li>
+                    <div class="theme-switch-wrapper">
+                        <i class="fas fa-sun sun-icon"></i>
+                        <label class="theme-switch">
+                            <input type="checkbox" id="checkbox">
+                            <div class="slider"></div>
+                        </label>
+                        <i class="fas fa-moon moon-icon"></i>
+                    </div>
+                </li>
             </ul>
         </nav>
     </header>
@@ -50,5 +60,29 @@
             <p><strong>Achievements:</strong> [e.g., "Designed and deployed 3 client websites, receiving positive feedback for user-friendly design."]</p>
         </main>
     </div>
+
+    <script>
+        // JavaScript for Dark Mode Toggle
+        const checkbox = document.getElementById('checkbox');
+        
+        // Check for saved theme preference or use user's system preference
+        if (localStorage.getItem('dark-mode') === 'true' || 
+            (window.matchMedia('(prefers-color-scheme: dark)').matches && 
+             localStorage.getItem('dark-mode') === null)) {
+            document.body.classList.add('dark-mode');
+            checkbox.checked = true;
+        }
+        
+        // Toggle dark mode
+        checkbox.addEventListener('change', function() {
+            if (this.checked) {
+                document.body.classList.add('dark-mode');
+                localStorage.setItem('dark-mode', 'true');
+            } else {
+                document.body.classList.remove('dark-mode');
+                localStorage.setItem('dark-mode', 'false');
+            }
+        });
+    </script>
 </body>
 </html>
