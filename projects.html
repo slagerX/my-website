@@ -13,7 +13,10 @@
             <h1>SHUBH YADAV</h1>
         </div>
         <nav>
-            <ul>
+            <div class="mobile-menu-toggle">
+                <i class="fas fa-bars"></i>
+            </div>
+            <ul class="nav-menu">
                 <li><a href="index.html">Profile</a></li>
                 <li><a href="work.html">Work Experience</a></li>
                 <li><a href="projects.html" class="active">Projects</a></li>
@@ -45,16 +48,7 @@
             <h5><strong>Link:</strong> <a href="[GitHub or live demo link]">[Link to project]</a></h5>
             <hr>
 
-            <h4>Project 2: [Project Name]</h4>
-            <p><strong>Description:</strong> [A brief description of the project, e.g., "A Python script to automate a task, such as file organization."]</p>
-            <p><strong>Technologies Used:</strong> [e.g., Python]</p>
-            <h5><strong>Link:</strong> <a href="[GitHub or live demo link]">[Link to project]</a></h5>
-            <hr>
-
-            <h4>Project 3: [Project Name]</h4>
-            <p><strong>Description:</strong> [A brief description of the project, e.g., "A responsive landing page for a fictional company, styled with CSS."]</p>
-            <p><strong>Technologies Used:</strong> [e.g., HTML, CSS]</p>
-            <h5><strong>Link:</strong> <a href="[GitHub or live demo link]">[Link to project]</a></h5>
+            <h4>Project 2: Add soon___</h4>
         </main>
     </div>
 
@@ -79,6 +73,28 @@
                 document.body.classList.remove('dark-mode');
                 localStorage.setItem('dark-mode', 'false');
             }
+        });
+
+        // Mobile menu toggle
+        const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
+        const navMenu = document.querySelector('.nav-menu');
+        
+        mobileMenuToggle.addEventListener('click', function() {
+            navMenu.classList.toggle('active');
+            const icon = this.querySelector('i');
+            icon.classList.toggle('fa-bars');
+            icon.classList.toggle('fa-times');
+        });
+        
+        // Close mobile menu when clicking on a link
+        const navLinks = document.querySelectorAll('.nav-menu a');
+        navLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                navMenu.classList.remove('active');
+                const icon = mobileMenuToggle.querySelector('i');
+                icon.classList.add('fa-bars');
+                icon.classList.remove('fa-times');
+            });
         });
     </script>
 </body>
