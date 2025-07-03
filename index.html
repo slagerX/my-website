@@ -13,7 +13,10 @@
             <h1>SHUBH YADAV</h1>
         </div>
         <nav>
-            <ul>
+            <div class="mobile-menu-toggle">
+                <i class="fas fa-bars"></i>
+            </div>
+            <ul class="nav-menu">
                 <li><a href="index.html" class="active">Profile</a></li>
                 <li><a href="work.html">Work Experience</a></li>
                 <li><a href="projects.html">Projects</a></li>
@@ -32,40 +35,24 @@
     </header>
 
     <div class="container">
-        <!-- Sidebar -->
-        <aside class="sidebar">
-            <div class="profile-pic">
-                <img src="" alt="Shubh Yadav" class="profile-image">
-            </div>
-            <p class="greeting">Hello!</p>
-            <p>I'm passionate about technology and human behavior, hardworking, and a fast learner and learning more!</p>
-            <h3>Contact details</h3>
-            <p><strong>Phone:</strong> +91 ----------</p>
-            <p><strong>Email:</strong> slager8971x@gmail.com</p>
-            <p><strong>Address:</strong> Etah <br> 207001</p>
-            <h3>Get social</h3>
-            <div class="social-links">
-                <a href="https://x.com/slazerx_"><img src="Twitter-X-Logo-Vector-01-2.jpg" alt="X"></a>
-                <a href="https://github.com/slagerX"><img src="github-3691248-3073768.webp" alt="X"></a>
-            </div>
-        </aside>
-
-        <!-- Main Content -->
-        <main class="content">
+        <!-- Main Content - Full Width -->
+        <main class="content full-width">
             <h2>What i know_</h2>
+
+        
             <blockquote>
-                <p>"Adavance python with modules --flask and frontend"</p>
-                <h3>Qualification</h3>
-                <p>10th with 61%</p>
-                <p>12th with 80%</p>
-                <p>Currently doing Bachelor of Science in Computer</p>
+                <h5 style="white-space: pre;">Python  |  GIT & GITHub  |  Docker  |  Cursor  |  Django  |  MongoDB  |  NOsql.</h5>
             </blockquote>
+            <hr>
+            
+            <h3>Extra curricular & certifications</h3>
+            <p style="white-space: pre;">1. Deloitte Australia - Technology Job Simulation. <a href="E:\my_coding\resume\d_cer.pdf" download > [Show credential&#127760;]</a></p>
+            <hr>
+            
             <h3>A few words about me</h3>
             <p>Until now, in my life, I have an active lifestyle—newly active moments full of variety, challenges, and improvements. It is difficult for me to stay in one place for a long time need to go outside. I consider myself a respectful, open-minded, and honest person. I really enjoy learning, and experiences from around the world.</p>
             <hr>
-            <h3>Philosophy</h3>
-            <p>I believe in ethics and moral—not in imposed rules that you "have to" follow. I believe life is made of different shades of gray, not just black and white. Furthermore, as rational human beings, I think it is our duty to take care of the world and treat others as we would like to be treated. This perspective shapes my beliefs and behavior.</p>
-            <hr>
+            
             <h3>Interests & Hobbies</h3>
             <p>I'm passionate about technology and human behavior—both influence all my interests and hobbies:</p>
             <ul>
@@ -76,6 +63,30 @@
                 <li>GYM</li>
                 <li>Anime</li>
             </ul>
+            <hr>
+            
+            <!-- Contact Section with Profile Picture -->
+            <div class="contact-section">
+                <div class="contact-content">
+                    <h2 font size="1px">MY cv &#8629;</h2>
+                    <h3>Contact details</h3>
+                    <div class="contact-info-vertical">
+                        <p><strong>Phone:</strong> +91 ----------</p>
+                        <p><strong>Email:</strong> slager8971x@gmail.com</p>
+                        <p><strong>Address:</strong> Etah <br> 207001</p>
+                    </div>
+                    <h3>Get social</h3>
+                    <div class="social-links">
+                        <a href="https://x.com/slazerx_"><img src="Twitter-X-Logo-Vector-01-2.jpg" alt="X"></a>
+                        <a href="https://github.com/slagerX"><img src="github-3691248-3073768.webp" alt="GitHub"></a>
+                        <a href="https://www.linkedin.com/in/shubh-yadav-69575434b/"><img src="E:\my_coding\resume\linke.jpg" alt="GitHub"></a>
+                    </div>
+                </div>
+                
+                <div class="profile-picture-container">
+                    <img src="" class="profile-picture">
+                </div>
+            </div>
         </main>
     </div>
 
@@ -101,6 +112,151 @@
                 localStorage.setItem('dark-mode', 'false');
             }
         });
+
+        // Mobile menu toggle
+        const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
+        const navMenu = document.querySelector('.nav-menu');
+        
+        mobileMenuToggle.addEventListener('click', function() {
+            navMenu.classList.toggle('active');
+            const icon = this.querySelector('i');
+            icon.classList.toggle('fa-bars');
+            icon.classList.toggle('fa-times');
+        });
+        
+        // Close mobile menu when clicking on a link
+        const navLinks = document.querySelectorAll('.nav-menu a');
+        navLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                navMenu.classList.remove('active');
+                const icon = mobileMenuToggle.querySelector('i');
+                icon.classList.add('fa-bars');
+                icon.classList.remove('fa-times');
+            });
+        });
     </script>
+
+    <style>
+        /* Additional styles for the contact section with profile picture */
+        .contact-section {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 40px;
+            margin-top: 20px;
+        }
+        
+        .contact-content {
+            flex: 1;
+        }
+        
+        .profile-picture-container {
+            flex-shrink: 0;
+            width: 285px;
+            height: 290px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .profile-picture {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 4px;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .profile-picture:hover {
+            transform: scale(1.05);
+            box-shadow: 0 12px 35px rgba(0, 0, 0, 0.2);
+        }
+        
+        /* If no image is loaded, show a placeholder */
+        .profile-picture-container::before {
+            content: '';
+            position: absolute;
+            width: 200px;
+            height: 240px;
+            background: linear-gradient(135deg, var(--accent-color), var(--accent-hover));
+            border-radius: 12px;
+            z-index: -1;
+        }
+        
+        .contact-info-vertical {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+        
+        .contact-info-vertical p {
+            margin: 0;
+            font-size: 15px;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 20px;
+            margin-top: 15px;
+        }
+        
+        .social-links img {
+            width: 30px;
+            height: 30px;
+            transition: transform 0.3s ease, filter 0.3s ease;
+        }
+        
+        .social-links img:hover {
+            transform: scale(1.15);
+            filter: brightness(1.2);
+        }
+        
+        /* Mobile responsiveness */
+        @media (max-width: 768px) {
+            .contact-section {
+                flex-direction: column;
+                gap: 20px;
+                align-items: center;
+            }
+            
+            .profile-picture-container {
+                width: 150px;
+                height: 180px;
+                order: -1; /* Show profile picture first on mobile */
+            }
+            
+            .profile-picture-container::before {
+                width: 150px;
+                height: 180px;
+            }
+            
+            .contact-content {
+                text-align: center;
+            }
+            
+            .contact-info-vertical {
+                align-items: center;
+                gap: 8px;
+            }
+            
+            .social-links {
+                justify-content: center;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .profile-picture-container {
+                width: 120px;
+                height: 150px;
+            }
+            
+            .profile-picture-container::before {
+                width: 120px;
+                height: 150px;
+            }
+        }
+    </style>
 </body>
 </html>
